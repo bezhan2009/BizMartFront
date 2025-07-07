@@ -5,9 +5,10 @@ import Link from 'next/link';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { Button } from './ui/button';
-import { Heart, Star } from 'lucide-react';
+import { Heart, Star, Award } from 'lucide-react';
 import type { Service } from '@/lib/types';
 import { useFavorites } from '@/hooks/use-favorites';
+import { Badge } from './ui/badge';
 
 interface ServiceCardProps {
   service: Service;
@@ -34,10 +35,16 @@ export default function ServiceCard({ service }: ServiceCardProps) {
             src={service.images[0]}
             alt={service.title}
             width={400}
-            height={250}
-            className="w-full h-48 object-cover"
+            height={400}
+            className="w-full h-auto aspect-square object-cover"
             data-ai-hint="service work"
           />
+           {service.featured && (
+            <Badge className="absolute top-2 left-2" variant="default">
+                <Award className="h-3 w-3 mr-1" />
+                Featured
+            </Badge>
+          )}
           <Button
             size="icon"
             variant="ghost"
@@ -70,6 +77,6 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           </div>
         </CardFooter>
       </Card>
-    </Link>
+    </</Link>
   );
 }

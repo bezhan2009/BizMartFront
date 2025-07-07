@@ -8,6 +8,7 @@ export interface Service {
   reviewsCount: number;
   images: string[];
   provider: UserStub;
+  featured?: boolean;
 }
 
 export interface User {
@@ -19,6 +20,8 @@ export interface User {
   bio: string;
   services: string[];
   reviews: Review[];
+  followers: number;
+  following: number;
 }
 
 export interface UserStub {
@@ -29,6 +32,7 @@ export interface UserStub {
 
 export interface Review {
   id: string;
+  providerId: string;
   author: {
     name: string;
     avatar: string;
