@@ -4,17 +4,18 @@ import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { getUserByUsername, getServicesByUserId } from '@/lib/data';
+import { users, services as allServices } from '@/lib/data';
 import ServiceCard from '@/components/service-card';
 import { AtSign, Edit, MapPin, UserPlus, UserCheck } from 'lucide-react';
 import { useState } from 'react';
 import ReviewCard from '@/components/review-card';
+import type { Review } from '@/lib/types';
 
 export default function ProfilePage() {
   const params = useParams();
   const username = params.username as string;
-  const user = getUserByUsername(username);
-  const userServices = getServicesByUserId(user?.id ?? '');
+  const user = users.find(u => u.username === username);
+  const userServices = allServices.filter(s => s.provider.username === username);
   const [isFollowing, setIsFollowing] = useState(false);
 
   if (!user) {
@@ -34,23 +35,23 @@ export default function ProfilePage() {
     setIsFollowing(!isFollowing);
   };
 
-  const reviews = [
+  const reviews: Review[] = [
     {
       id: '1',
-      author: 'Jane Doe',
-      avatar: 'https://placehold.co/40x40.png',
-      avatarHint: 'woman portrait',
+      providerId: user.id,
+      author: { name: 'Jane Doe', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2' },
       rating: 5,
       comment:
         'Absolutely phenomenal work! The attention to detail was incredible.',
+      date: '2023-01-15',
     },
     {
       id: '2',
-      author: 'John Smith',
-      avatar: 'https://placehold.co/40x40.png',
-      avatarHint: 'man portrait',
+      providerId: user.id,
+      author: { name: 'John Smith', avatar: 'https://images.unsplash.com/photo-1552058544-f2b08422138a' },
       rating: 4,
       comment: 'Great service and very professional. Highly recommended.',
+      date: '2023-02-20',
     },
   ];
 
@@ -65,7 +66,6 @@ export default function ProfilePage() {
               width={120}
               height={120}
               className="rounded-full object-cover border-4 border-background"
-              data-ai-hint={user.avatarHint}
             />
           </div>
           <div className="flex-1 text-center md:text-left">

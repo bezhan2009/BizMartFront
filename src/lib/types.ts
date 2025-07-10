@@ -10,7 +10,6 @@ export interface Service {
   rating: number;
   reviewsCount: number;
   images: string[];
-  imageHints: string[];
   provider: UserStub;
   featured?: boolean;
   analytics?: {
@@ -26,7 +25,6 @@ export interface User {
   username: string;
   role: UserRole;
   avatar: string;
-  avatarHint: string;
   location: string;
   bio: string;
   services: string[];
@@ -39,7 +37,6 @@ export interface UserStub {
   name: string;
   username: string;
   avatar: string;
-  avatarHint: string;
 }
 
 export interface Review {
@@ -48,7 +45,6 @@ export interface Review {
   author: {
     name: string;
     avatar: string;
-    avatarHint: string;
   };
   rating: number;
   comment: string;
@@ -67,7 +63,6 @@ export interface Conversation {
   participant: {
     name: string;
     avatar: string;
-    avatarHint: string;
   };
   lastMessage: string;
   timestamp: string;

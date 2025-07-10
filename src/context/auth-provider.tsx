@@ -25,8 +25,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         id: `user-${Date.now()}`,
         name: name || `User ${email.split('@')[0]}`,
         username: email.split('@')[0],
-        avatar: `https://placehold.co/100x100/1DBAB4/FFFFFF/png?text=${(name || email).charAt(0).toUpperCase()}`,
-        avatarHint: 'user profile'
+        avatar: `https://images.unsplash.com/photo-1527980965255-d3b416303d12`,
     };
     setUser(foundUser);
     setRole(userRole);

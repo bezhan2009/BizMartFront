@@ -12,11 +12,10 @@ export default function AuthLayout({
       </div>
       <div className="hidden lg:block lg:w-1/2 relative">
         <Image
-          src="https://placehold.co/1000x1200.png"
+          src="https://images.unsplash.com/photo-1516321497487-e288fb19713f"
           alt="Abstract background"
           fill
           className="object-cover opacity-20"
-          data-ai-hint="vibrant abstract"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-primary/10 to-transparent">
           <h1 className="text-4xl font-bold text-primary-foreground">BizMart</h1>

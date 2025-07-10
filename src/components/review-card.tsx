@@ -16,7 +16,7 @@ export default function ReviewCard({ review }: ReviewCardProps) {
         <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
                 <Avatar>
-                    <AvatarImage src={review.author.avatar} data-ai-hint={review.author.avatarHint} />
+                    <AvatarImage src={review.author.avatar} />
                     <AvatarFallback>{review.author.name.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <div>
