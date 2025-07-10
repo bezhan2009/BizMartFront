@@ -1,6 +1,21 @@
 
 export type UserRole = 'customer' | 'provider';
 
+export interface Post {
+  id: string;
+  type: 'photo' | 'video';
+  url: string;
+  caption: string;
+}
+
+export interface Order {
+  id: string;
+  serviceTitle: string;
+  providerName: string;
+  date: string;
+  price: number;
+}
+
 export interface Service {
   id: string;
   title: string;
@@ -30,7 +45,9 @@ export interface User {
   services: string[];
   reviews: Review[];
   followers: number;
-  following: number;
+  following: UserStub[];
+  posts?: Post[];
+  orders?: Order[];
 }
 
 export interface UserStub {
