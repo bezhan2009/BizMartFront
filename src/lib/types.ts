@@ -1,3 +1,6 @@
+
+export type UserRole = 'customer' | 'provider';
+
 export interface Service {
   id: string;
   title: string;
@@ -10,12 +13,18 @@ export interface Service {
   imageHints: string[];
   provider: UserStub;
   featured?: boolean;
+  analytics?: {
+    views: number;
+    likes: number;
+    revenue: number;
+  }
 }
 
 export interface User {
   id: string;
   name: string;
   username: string;
+  role: UserRole;
   avatar: string;
   avatarHint: string;
   location: string;

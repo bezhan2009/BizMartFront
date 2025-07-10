@@ -1,3 +1,4 @@
+
 import type { User, Service, Review, Category, Conversation } from './types';
 
 export const users: User[] = [
@@ -5,6 +6,7 @@ export const users: User[] = [
     id: 'user-1',
     name: 'Alice Johnson',
     username: 'alicej',
+    role: 'provider',
     avatar: 'https://placehold.co/120x120/008080/FFFFFF/png',
     avatarHint: 'woman developer',
     location: 'San Francisco, CA',
@@ -18,6 +20,7 @@ export const users: User[] = [
     id: 'user-2',
     name: 'Bob Williams',
     username: 'bobw',
+    role: 'provider',
     avatar: 'https://placehold.co/120x120/333333/FFFFFF/png',
     avatarHint: 'man designer',
     location: 'New York, NY',
@@ -31,6 +34,7 @@ export const users: User[] = [
     id: 'user-3',
     name: 'Charlie Brown',
     username: 'charlieb',
+    role: 'provider',
     avatar: 'https://placehold.co/120x120/F9F9F9/333333/png',
     avatarHint: 'man writer',
     location: 'Austin, TX',
@@ -39,6 +43,20 @@ export const users: User[] = [
     reviews: [],
     followers: 530,
     following: 95,
+  },
+   {
+    id: 'user-4',
+    name: 'Diana Prince',
+    username: 'dianap',
+    role: 'customer',
+    avatar: 'https://placehold.co/120x120/EE4B2B/FFFFFF/png',
+    avatarHint: 'woman professional',
+    location: 'Chicago, IL',
+    bio: 'Looking for the best creative talent for my upcoming projects.',
+    services: [],
+    reviews: [],
+    followers: 50,
+    following: 15,
   },
 ];
 
@@ -63,6 +81,7 @@ export const services: Service[] = [
     imageHints: ['website code', 'modern dashboard', 'team collaboration'],
     provider: { name: users[0].name, username: users[0].username, avatar: users[0].avatar, avatarHint: users[0].avatarHint },
     featured: true,
+    analytics: { views: 1250, likes: 230, revenue: 4500 }
   },
   {
     id: 'service-2',
@@ -75,6 +94,7 @@ export const services: Service[] = [
     images: ['https://placehold.co/400x400.png', 'https://placehold.co/600x400.png'],
     imageHints: ['online shopping', 'product display'],
     provider: { name: users[0].name, username: users[0].username, avatar: users[0].avatar, avatarHint: users[0].avatarHint },
+    analytics: { views: 890, likes: 180, revenue: 3800 }
   },
   {
     id: 'service-3',
@@ -87,6 +107,7 @@ export const services: Service[] = [
     images: ['https://placehold.co/400x400.png'],
     imageHints: ['logo design'],
     provider: { name: users[1].name, username: users[1].username, avatar: users[1].avatar, avatarHint: users[1].avatarHint },
+    analytics: { views: 2100, likes: 450, revenue: 6750 }
   },
   {
     id: 'service-4',
@@ -99,6 +120,7 @@ export const services: Service[] = [
     images: ['https://placehold.co/400x400.png', 'https://placehold.co/600x400.png'],
     imageHints: ['writing content', 'typing keyboard'],
     provider: { name: users[2].name, username: users[2].username, avatar: users[2].avatar, avatarHint: users[2].avatarHint },
+    analytics: { views: 3500, likes: 600, revenue: 3360 }
   },
   {
     id: 'service-5',
@@ -112,6 +134,7 @@ export const services: Service[] = [
     imageHints: ['social media'],
     provider: { name: users[1].name, username: users[1].username, avatar: users[1].avatar, avatarHint: users[1].avatarHint },
     featured: true,
+    analytics: { views: 1800, likes: 320, revenue: 4500 }
   },
   {
     id: 'service-6',
@@ -124,6 +147,7 @@ export const services: Service[] = [
     images: ['https://placehold.co/400x400.png', 'https://placehold.co/600x400.png'],
     imageHints: ['mobile app', 'ui design'],
     provider: { name: users[0].name, username: users[0].username, avatar: users[0].avatar, avatarHint: users[0].avatarHint },
+     analytics: { views: 1100, likes: 200, revenue: 4000 }
   },
 ];
 

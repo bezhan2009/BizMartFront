@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useForm } from "react-hook-form";
@@ -24,6 +25,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/hooks/use-auth";
 import Logo from "@/components/logo";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const formSchema = z.object({
   email: z.string().email({
@@ -31,6 +33,9 @@ const formSchema = z.object({
   }),
   password: z.string().min(1, {
     message: "Password is required.",
+  }),
+  role: z.enum(["customer", "provider"], {
+    required_error: "You need to select a role.",
   }),
 });
 
@@ -42,11 +47,12 @@ export default function LoginPage() {
     defaultValues: {
       email: "",
       password: "",
+      role: "customer",
     },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    authenticate(values.email);
+    authenticate(values.email, undefined, values.role as 'customer' | 'provider');
     router.push("/");
   }
 
@@ -86,6 +92,40 @@ export default function LoginPage() {
                     <FormLabel>Password</FormLabel>
                     <FormControl>
                       <Input type="password" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+               <FormField
+                control={form.control}
+                name="role"
+                render={({ field }) => (
+                  <FormItem className="space-y-3">
+                    <FormLabel>I am a...</FormLabel>
+                    <FormControl>
+                      <RadioGroup
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                        className="flex space-x-4"
+                      >
+                        <FormItem className="flex items-center space-x-2 space-y-0">
+                          <FormControl>
+                            <RadioGroupItem value="customer" />
+                          </FormControl>
+                          <FormLabel className="font-normal">
+                            Customer
+                          </FormLabel>
+                        </FormItem>
+                        <FormItem className="flex items-center space-x-2 space-y-0">
+                          <FormControl>
+                            <RadioGroupItem value="provider" />
+                          </FormControl>
+                          <FormLabel className="font-normal">
+                            Service Provider
+                          </FormLabel>
+                        </FormItem>
+                      </RadioGroup>
                     </FormControl>
                     <FormMessage />
                   </FormItem>

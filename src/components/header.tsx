@@ -1,9 +1,10 @@
+
 "use client";
 
 import Link from 'next/link';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-import { Menu, User, Heart, MessageSquare, LogOut, LogIn } from 'lucide-react';
+import { Menu, User, Heart, MessageSquare, LogOut, LogIn, LayoutDashboard } from 'lucide-react';
 import Logo from './logo';
 import SearchBar from './search-bar';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from './ui/dropdown-menu';
@@ -12,12 +13,18 @@ import { useAuth } from '@/hooks/use-auth';
 import { ThemeToggle } from './theme-toggle';
 
 const navLinks = [
-  { href: '/favorites', label: 'Favorites', icon: Heart },
-  { href: '/chat', label: 'Messages', icon: MessageSquare },
+  { href: '/favorites', label: 'Favorites', icon: Heart, roles: ['customer', 'provider'] },
+  { href: '/chat', label: 'Messages', icon: MessageSquare, roles: ['customer', 'provider'] },
+  { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard, roles: ['provider'] },
 ];
 
 export default function Header() {
-  const { user, logout } = useAuth();
+  const { user, logout, role } = useAuth();
+
+  const getNavLinks = () => {
+      if (!user) return [];
+      return navLinks.filter(link => link.roles.includes(role || 'customer'));
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -38,7 +45,7 @@ export default function Header() {
               <div className="flex flex-col gap-6 p-4">
                 <Logo />
                 <nav className="flex flex-col gap-4">
-                  {user && navLinks.map(({ href, label, icon: Icon }) => (
+                  {user && getNavLinks().map(({ href, label, icon: Icon }) => (
                     <Link
                       key={href}
                       href={href}
@@ -66,7 +73,7 @@ export default function Header() {
           </Sheet>
           {/* Desktop Nav */}
           <nav className="hidden items-center gap-4 md:flex">
-            {user && navLinks.map(({ href, label }) => (
+            {user && getNavLinks().map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
@@ -108,12 +115,14 @@ export default function Header() {
                     <span>Profile</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/favorites">
-                    <Heart className="mr-2 h-4 w-4" />
-                    <span>Favorites</span>
-                  </Link>
-                </DropdownMenuItem>
+                 {getNavLinks().map((link) => (
+                   <DropdownMenuItem key={link.href} asChild>
+                     <Link href={link.href}>
+                       <link.icon className="mr-2 h-4 w-4" />
+                       <span>{link.label}</span>
+                     </Link>
+                   </DropdownMenuItem>
+                 ))}
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={logout}>
                   <LogOut className="mr-2 h-4 w-4" />
