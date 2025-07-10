@@ -1,5 +1,28 @@
 {
-  "node": {},
+  "node": {
+    "4014d7c3a6c13cebfe1e2a244bf21fd680172b605f": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fuser%2Fstudio%2Fsrc%2Fai%2Fflows%2Fsmart-search-assistant.ts%22%2C%5B%7B%22id%22%3A%224014d7c3a6c13cebfe1e2a244bf21fd680172b605f%22%2C%22exportedName%22%3A%22smartSearchSuggestions%22%7D%5D%5D%2C%5B%22%2Fhome%2Fuser%2Fstudio%2Fsrc%2Fai%2Fflows%2Fnatural-language-search.ts%22%2C%5B%7B%22id%22%3A%22401b5d995ddec67c5a01c02b13d7954c20688e0ad4%22%2C%22exportedName%22%3A%22naturalLanguageSearch%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      }
+    },
+    "401b5d995ddec67c5a01c02b13d7954c20688e0ad4": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fuser%2Fstudio%2Fsrc%2Fai%2Fflows%2Fsmart-search-assistant.ts%22%2C%5B%7B%22id%22%3A%224014d7c3a6c13cebfe1e2a244bf21fd680172b605f%22%2C%22exportedName%22%3A%22smartSearchSuggestions%22%7D%5D%5D%2C%5B%22%2Fhome%2Fuser%2Fstudio%2Fsrc%2Fai%2Fflows%2Fnatural-language-search.ts%22%2C%5B%7B%22id%22%3A%22401b5d995ddec67c5a01c02b13d7954c20688e0ad4%22%2C%22exportedName%22%3A%22naturalLanguageSearch%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      }
+    }
+  },
   "edge": {},
-  "encryptionKey": "QAmbauPNveyPmWrTJoQaW/9Omzb70Y+3mqo9qO7QY2c="
+  "encryptionKey": "sDnOzLIgIGdkEGdRJhupEle36Q5cJUHJhiz1iW83BwY="
 }
