@@ -6,6 +6,7 @@ export const users: User[] = [
     name: 'Alice Johnson',
     username: 'alicej',
     avatar: 'https://placehold.co/120x120/008080/FFFFFF/png',
+    avatarHint: 'woman developer',
     location: 'San Francisco, CA',
     bio: 'Experienced web developer specializing in React and Next.js. I create beautiful and performant websites for businesses of all sizes.',
     services: ['service-1', 'service-2'],
@@ -18,6 +19,7 @@ export const users: User[] = [
     name: 'Bob Williams',
     username: 'bobw',
     avatar: 'https://placehold.co/120x120/333333/FFFFFF/png',
+    avatarHint: 'man designer',
     location: 'New York, NY',
     bio: 'Graphic designer with a passion for creating stunning logos and branding materials. Let\'s make your brand stand out!',
     services: ['service-3'],
@@ -30,6 +32,7 @@ export const users: User[] = [
     name: 'Charlie Brown',
     username: 'charlieb',
     avatar: 'https://placehold.co/120x120/F9F9F9/333333/png',
+    avatarHint: 'man writer',
     location: 'Austin, TX',
     bio: 'I write compelling copy that converts. From blog posts to website content, I can help you communicate your message effectively.',
     services: ['service-4'],
@@ -40,11 +43,11 @@ export const users: User[] = [
 ];
 
 export const reviews: Review[] = [
-    { id: 'rev-1', providerId: 'user-1', author: { name: 'Client A', avatar: 'https://placehold.co/40x40.png' }, rating: 5, comment: 'Amazing work, delivered on time!', date: '2023-10-01' },
-    { id: 'rev-2', providerId: 'user-1', author: { name: 'Client B', avatar: 'https://placehold.co/40x40.png' }, rating: 4, comment: 'Great communication and high-quality results.', date: '2023-09-22' },
-    { id: 'rev-3', providerId: 'user-2', author: { name: 'Client C', avatar: 'https://placehold.co/40x40.png' }, rating: 5, comment: 'Exceeded my expectations. Highly recommended.', date: '2023-11-05' },
-    { id: 'rev-4', providerId: 'user-3', author: { name: 'Client D', avatar: 'https://placehold.co/40x40.png' }, rating: 3, comment: 'Good work, but took a bit longer than expected.', date: '2023-10-15' },
-    { id: 'rev-5', providerId: 'user-1', author: { name: 'Client E', avatar: 'https://placehold.co/40x40.png' }, rating: 5, comment: 'Alice is a true professional. Will hire again!', date: '2023-11-10' },
+    { id: 'rev-1', providerId: 'user-1', author: { name: 'Client A', avatar: 'https://placehold.co/40x40.png', avatarHint: 'professional woman' }, rating: 5, comment: 'Amazing work, delivered on time!', date: '2023-10-01' },
+    { id: 'rev-2', providerId: 'user-1', author: { name: 'Client B', avatar: 'https://placehold.co/40x40.png', avatarHint: 'business man' }, rating: 4, comment: 'Great communication and high-quality results.', date: '2023-09-22' },
+    { id: 'rev-3', providerId: 'user-2', author: { name: 'Client C', avatar: 'https://placehold.co/40x40.png', avatarHint: 'startup founder' }, rating: 5, comment: 'Exceeded my expectations. Highly recommended.', date: '2023-11-05' },
+    { id: 'rev-4', providerId: 'user-3', author: { name: 'Client D', avatar: 'https://placehold.co/40x40.png', avatarHint: 'woman smiling' }, rating: 3, comment: 'Good work, but took a bit longer than expected.', date: '2023-10-15' },
+    { id: 'rev-5', providerId: 'user-1', author: { name: 'Client E', avatar: 'https://placehold.co/40x40.png', avatarHint: 'man portrait' }, rating: 5, comment: 'Alice is a true professional. Will hire again!', date: '2023-11-10' },
 ];
 
 export const services: Service[] = [
@@ -57,7 +60,8 @@ export const services: Service[] = [
     rating: 4.9,
     reviewsCount: 8,
     images: ['https://placehold.co/400x400.png', 'https://placehold.co/600x400.png', 'https://placehold.co/600x400.png'],
-    provider: { name: users[0].name, username: users[0].username, avatar: users[0].avatar },
+    imageHints: ['website code', 'modern dashboard', 'team collaboration'],
+    provider: { name: users[0].name, username: users[0].username, avatar: users[0].avatar, avatarHint: users[0].avatarHint },
     featured: true,
   },
   {
@@ -69,7 +73,8 @@ export const services: Service[] = [
     rating: 4.8,
     reviewsCount: 12,
     images: ['https://placehold.co/400x400.png', 'https://placehold.co/600x400.png'],
-    provider: { name: users[0].name, username: users[0].username, avatar: users[0].avatar },
+    imageHints: ['online shopping', 'product display'],
+    provider: { name: users[0].name, username: users[0].username, avatar: users[0].avatar, avatarHint: users[0].avatarHint },
   },
   {
     id: 'service-3',
@@ -80,7 +85,8 @@ export const services: Service[] = [
     rating: 5.0,
     reviewsCount: 25,
     images: ['https://placehold.co/400x400.png'],
-    provider: { name: users[1].name, username: users[1].username, avatar: users[1].avatar },
+    imageHints: ['logo design'],
+    provider: { name: users[1].name, username: users[1].username, avatar: users[1].avatar, avatarHint: users[1].avatarHint },
   },
   {
     id: 'service-4',
@@ -91,7 +97,8 @@ export const services: Service[] = [
     rating: 4.7,
     reviewsCount: 42,
     images: ['https://placehold.co/400x400.png', 'https://placehold.co/600x400.png'],
-    provider: { name: users[2].name, username: users[2].username, avatar: users[2].avatar },
+    imageHints: ['writing content', 'typing keyboard'],
+    provider: { name: users[2].name, username: users[2].username, avatar: users[2].avatar, avatarHint: users[2].avatarHint },
   },
   {
     id: 'service-5',
@@ -102,7 +109,8 @@ export const services: Service[] = [
     rating: 4.9,
     reviewsCount: 15,
     images: ['https://placehold.co/400x400.png'],
-    provider: { name: users[1].name, username: users[1].username, avatar: users[1].avatar },
+    imageHints: ['social media'],
+    provider: { name: users[1].name, username: users[1].username, avatar: users[1].avatar, avatarHint: users[1].avatarHint },
     featured: true,
   },
   {
@@ -114,7 +122,8 @@ export const services: Service[] = [
     rating: 4.9,
     reviewsCount: 9,
     images: ['https://placehold.co/400x400.png', 'https://placehold.co/600x400.png'],
-    provider: { name: users[0].name, username: users[0].username, avatar: users[0].avatar },
+    imageHints: ['mobile app', 'ui design'],
+    provider: { name: users[0].name, username: users[0].username, avatar: users[0].avatar, avatarHint: users[0].avatarHint },
   },
 ];
 
@@ -128,7 +137,7 @@ export const categories: Category[] = [
 export const conversations: Conversation[] = [
     {
         id: 'conv-1',
-        participant: { name: 'Alice Johnson', avatar: users[0].avatar },
+        participant: { name: 'Alice Johnson', avatar: users[0].avatar, avatarHint: 'woman developer' },
         lastMessage: 'Sounds great, I will get started on the mockups.',
         timestamp: '10:42 AM',
         messages: [
@@ -141,7 +150,7 @@ export const conversations: Conversation[] = [
     },
     {
         id: 'conv-2',
-        participant: { name: 'Bob Williams', avatar: users[1].avatar },
+        participant: { name: 'Bob Williams', avatar: users[1].avatar, avatarHint: 'man designer' },
         lastMessage: 'Perfect, looking forward to the concepts.',
         timestamp: 'Yesterday',
         messages: [

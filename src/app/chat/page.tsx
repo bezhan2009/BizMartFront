@@ -36,7 +36,7 @@ export default function ChatPage() {
                 onClick={() => setSelectedConversation(convo)}
               >
                 <Avatar>
-                  <AvatarImage src={convo.participant.avatar} data-ai-hint="user avatar" />
+                  <AvatarImage src={convo.participant.avatar} data-ai-hint={convo.participant.avatarHint} />
                   <AvatarFallback>{convo.participant.name.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <div className="flex-grow overflow-hidden">
@@ -52,7 +52,7 @@ export default function ChatPage() {
             <>
               <div className="p-4 border-b flex items-center gap-4">
                 <Avatar>
-                  <AvatarImage src={selectedConversation.participant.avatar} data-ai-hint="user avatar" />
+                  <AvatarImage src={selectedConversation.participant.avatar} data-ai-hint={selectedConversation.participant.avatarHint} />
                   <AvatarFallback>{selectedConversation.participant.name.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <h3 className="text-lg font-semibold font-headline">{selectedConversation.participant.name}</h3>
@@ -69,7 +69,7 @@ export default function ChatPage() {
                     >
                       {msg.sender === 'other' && (
                         <Avatar className="h-8 w-8">
-                          <AvatarImage src={selectedConversation.participant.avatar} data-ai-hint="user avatar" />
+                          <AvatarImage src={selectedConversation.participant.avatar} data-ai-hint={selectedConversation.participant.avatarHint} />
                         </Avatar>
                       )}
                       <div

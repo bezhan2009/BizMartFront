@@ -33,7 +33,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
             width={400}
             height={400}
             className="w-full h-auto aspect-square object-cover"
-            data-ai-hint="service work"
+            data-ai-hint={service.imageHints[0]}
           />
           {service.featured && (
             <Badge className="absolute top-2 left-2" variant="default">
@@ -60,7 +60,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
               <AvatarImage
                 src={service.provider.avatar}
                 alt={service.provider.name}
-                data-ai-hint="user avatar"
+                data-ai-hint={service.provider.avatarHint}
               />
               <AvatarFallback>{service.provider.name.charAt(0)}</AvatarFallback>
             </Avatar>

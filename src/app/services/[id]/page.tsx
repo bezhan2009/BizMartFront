@@ -43,7 +43,7 @@ export default function ServicePage({ params }: { params: { id: string } }) {
             <span>·</span>
             <Link href={`/profile/${service.provider.username}`} className="hover:text-primary transition-colors flex items-center gap-2">
               <Avatar className="h-6 w-6">
-                <AvatarImage src={service.provider.avatar} data-ai-hint="user avatar"/>
+                <AvatarImage src={service.provider.avatar} data-ai-hint={service.provider.avatarHint}/>
                 <AvatarFallback>{service.provider.name.charAt(0)}</AvatarFallback>
               </Avatar>
               <span>{service.provider.name}</span>
@@ -61,7 +61,7 @@ export default function ServicePage({ params }: { params: { id: string } }) {
                       width={800}
                       height={500}
                       className="w-full h-auto aspect-video object-cover"
-                      data-ai-hint="service work"
+                      data-ai-hint={service.imageHints[index]}
                     />
                   </Card>
                 </CarouselItem>
@@ -85,7 +85,7 @@ export default function ServicePage({ params }: { params: { id: string } }) {
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
                             <Avatar>
-                                <AvatarImage src={review.author.avatar} data-ai-hint="user avatar" />
+                                <AvatarImage src={review.author.avatar} data-ai-hint={review.author.avatarHint} />
                                 <AvatarFallback>{review.author.name.charAt(0)}</AvatarFallback>
                             </Avatar>
                             <div>
